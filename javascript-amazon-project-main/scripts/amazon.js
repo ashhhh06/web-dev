@@ -1,4 +1,5 @@
 
+import {cart} from '../data/cart.js '
 
 let productsHTML='';
 
@@ -76,9 +77,32 @@ products.forEach((product)=>{
                     cart.push({
                     productId:productId,
                     quantity:1
-                    })
+                    });
 
                 }
+
+                let cartQuantity=0;
+
+                cart.forEach((item)=>{
+                    cartQuantity+=Number(item.quantity);
+                    
+
+                });
+                
+                document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+                
+
+                
+                //console.log(cart);
+
+                //console.log(cartQuantity);
+
+
+                //document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+
+
+
+
 
             })
         })
