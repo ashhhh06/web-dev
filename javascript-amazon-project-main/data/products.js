@@ -783,3 +783,57 @@ export const products = [
 
 //now each object of product becomes a class 
 //array of objects is now converted to array of object product  classes
+
+
+
+//built in classes
+
+const date=new Date();
+console.log(date);
+//gives current time
+
+console.log(date.toLocaleTimeString());
+
+// 'this ' lets an object acces its own properties
+//this can be used anywhere in the code
+
+console.log(this);
+
+//originally this=window object 
+//now inside the module it is undefined
+/*
+const object2={
+  a:2,
+  b:this.a // object2 has not been created yet therefore thsi is still undefined
+ //if we are inside a method this can point to a object 
+ //outside the method there is no object to point to 
+};
+
+*/
+
+function logThis(){
+  console.log(this);
+}
+
+logThis();
+
+//inside the function we can convert the value of this using .call to anything
+logThis.call('hello');
+
+//arrow function do not change the value of this
+//this will have the same value as outside the arrow function
+
+const object3={
+  method:()=>{
+    console.log(this);
+  }
+}
+
+object3.method()
+
+//arrow functiom acts this way because 
+//common prob befiore
+//when inside a method this points to object
+//but if we do forEach loop this does not point to the object it shows undefined because we created a whole new function
+//therefore we use arrow function so that it uses the value of this outside the arrow function'
+//beacuse arrow function does not change the valuse of this
