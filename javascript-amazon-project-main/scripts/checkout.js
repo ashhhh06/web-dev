@@ -4,6 +4,8 @@ import { loadProducts,loadProductsFetch} from '../data/products.js';
 //import '../data/cart-class.js';
 //import '../data/backend-practise.js'; 
 
+
+
 new Promise((resolve)=>{
     //console.log('start promise')
     loadProducts(()=>{
@@ -17,6 +19,7 @@ new Promise((resolve)=>{
     renderPaymentSummary();
 
 })
+     
 
 
 /*
@@ -113,3 +116,35 @@ Promise.all([
 })
 
 */
+
+/*
+async function loadPage(){ // async makes the function return promise
+    
+
+    await loadProductsFetch(); //await lets us write asynchronous code like normal code
+    //instead of using .then() wait to get the response and then complete the next line 
+    //we can only use await when inside async function
+
+    await new Promise((resolve)=>{
+        loadCart(()=>{
+            resolve('value3');
+            
+
+        });
+    })
+
+
+    renderOrderSummary();
+    renderPaymentSummary(); 
+
+
+
+    //return 'value2' // =this is equals tto resolve (value2)
+
+}
+
+loadPage().then((value)=>{
+    console.log('next step');
+    console.log(value);
+})
+    */
