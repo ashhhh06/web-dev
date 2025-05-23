@@ -1,6 +1,6 @@
 import {renderOrderSummary} from './checkout/orderSummary.js';
 import {renderPaymentSummary} from './checkout/paymentSummary.js';
-import { loadProducts } from '../data/products.js';
+import { loadProducts,loadProductsFetch} from '../data/products.js';
 //import '../data/cart-class.js';
 //import '../data/backend-practise.js'; 
 
@@ -84,5 +84,32 @@ loadProducts(()=>{
     renderPaymentSummary();
 
 });
+
+*/
+
+
+
+//using fetch
+
+/*
+Promise.all([
+    loadProductsFetch(),  //can help us get promise directly
+
+
+    new Promise((resolve)=>{
+        loadCart(()=>{
+            resolve();
+            
+
+        });
+    })
+
+
+
+]).then((value)=>{
+    console.log(value);
+    renderOrderSummary();
+    renderPaymentSummary(); 
+})
 
 */

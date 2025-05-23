@@ -115,6 +115,7 @@ const product1=new Product({
 
 export let products=[];
 
+
 export function loadProducts(fun){
   const xhr=new XMLHttpRequest();
 
@@ -132,6 +133,7 @@ export function loadProducts(fun){
   xhr.open('GET','https://supersimplebackend.dev/products');
   xhr.send();
 }
+  
 
 
 
@@ -861,3 +863,34 @@ object3.method()
 //but if we do forEach loop this does not point to the object it shows undefined because we created a whole new function
 //therefore we use arrow function so that it uses the value of this outside the arrow function'
 //beacuse arrow function does not change the valuse of this
+
+/*
+
+export function loadProductsFetch(){
+  const promise=fetch('https://supersimplebackend.dev/products').then((response)=>{
+    return response.json();//response .json is asynchronous and return a promise
+
+  }).then((productsData)=>{
+    products=productsData.map((productDetails)=>{
+
+        if(productDetails.type==='clothing'){
+          return new Clothing(productDetails);
+        }
+        return new Product(productDetails);
+
+      });;
+
+      
+    
+  })
+
+  return promise;
+}
+
+//we can return a promise out of  a function and keep attatching more promises to it
+
+loadProductsFetch().then(()=>{
+  console.log('next step')
+});
+
+*/
