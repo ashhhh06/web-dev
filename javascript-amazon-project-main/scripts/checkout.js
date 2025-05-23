@@ -117,29 +117,40 @@ Promise.all([
 
 */
 
-/*
-async function loadPage(){ // async makes the function return promise
-    
 
-    await loadProductsFetch(); //await lets us write asynchronous code like normal code
+
+
+/*
+
+async function loadPage(){ // async makes the function return promise
+    try{
+
+    //throw 'error1';// for synchronous use throw
+
+
+        await loadProductsFetch(); //await lets us write asynchronous code like normal code
     //instead of using .then() wait to get the response and then complete the next line 
     //we can only use await when inside async function
 
-    await new Promise((resolve)=>{
+    const value=await new Promise((resolve,reject)=>{
+        //reject is a function which lets us generate error in the future
+        //throw 'error2'
         loadCart(()=>{
+            //throw does not works in the future
+            reject('error3');
             resolve('value3');
-            
-
         });
     })
 
+    //return 'value2' // =this is equals tto resolve (value2)
+    
+    
+    } catch(error){
+        console.log('unexpected error');
+    }
 
     renderOrderSummary();
     renderPaymentSummary(); 
-
-
-
-    //return 'value2' // =this is equals tto resolve (value2)
 
 }
 
@@ -147,4 +158,6 @@ loadPage().then((value)=>{
     console.log('next step');
     console.log(value);
 })
-    */
+    
+
+*/
